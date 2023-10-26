@@ -16,7 +16,11 @@ defineProps({
     <div class="card mt-4">
         <div class="card-body">
             <h5 class="card-tittle" :class="`text-${color}`">{{ id }}.{{ title }}</h5>
-            {{ description }}
+            <p>{{ description }}</p>
+            <button class="btn btn-sm btn-outline-primary" @click="$emit('changeFavorites', title)">
+                Mi Favorito
+            </button>
         </div>
+
     </div>
 </template>
