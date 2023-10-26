@@ -1,6 +1,14 @@
 <script setup>
 
-defineProps(['title', 'id', 'description', 'color'])
+defineProps({
+    title: String,
+    id: Number,
+    color: String,
+    description: {
+        type: String,
+        default: "Don't have description"
+    }
+})
 
 </script>
 
