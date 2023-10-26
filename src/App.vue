@@ -3,13 +3,10 @@ import ButtonCounter from "./component/ButtonCounter.vue"
 </script>
 
 <template>
-  <div>
-    APP
+  <div class="container">
+    <h1>APP</h1>
+
+    <ButtonCounter />
+    <button-counter />
   </div>
-  <ButtonCounter></ButtonCounter>
-  <ButtonCounter></ButtonCounter>
-  <ButtonCounter></ButtonCounter>
-  <ButtonCounter></ButtonCounter>
-  <ButtonCounter></ButtonCounter>
-  <ButtonCounter></ButtonCounter>
 </template>
