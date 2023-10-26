@@ -10,6 +10,8 @@ defineProps({
     }
 })
 
+const emits = defineEmits(['changeFavorites'])
+
 </script>
 
 <template>
@@ -17,7 +19,7 @@ defineProps({
         <div class="card-body">
             <h5 class="card-tittle" :class="`text-${color}`">{{ id }}.{{ title }}</h5>
             <p>{{ description }}</p>
-            <button class="btn btn-sm btn-outline-primary" @click="$emit('changeFavorites', title)">
+            <button class="btn btn-sm btn-outline-primary" @click="emits('changeFavoritesNombre', title)">
                 Mi Favorito
             </button>
         </div>

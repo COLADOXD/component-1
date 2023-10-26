@@ -21,6 +21,6 @@ const changeFavorites = (post) => favorite.value = post
     <h2>Mis Post Favoritos: {{ favorite }}</h2>
 
     <blog-post v-for="post in posts" :key="post.id" :title="post.title" :id="post.id" :color="post.color"
-      :description="post.description" @changeFavorites="changeFavorites" />
+      :description="post.description" @changeFavoritesNombre="changeFavorites" />
   </div>
 </template>
