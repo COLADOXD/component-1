@@ -7,7 +7,8 @@ defineProps({
     description: {
         type: String,
         default: "Don't have description"
-    }
+    },
+
 })
 
 const emits = defineEmits(['changeFavorites'])
