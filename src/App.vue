@@ -23,7 +23,7 @@ const changeFavorites = (post) => favorite.value = post
 
     <paginate-post />
 
-    <blog-post v-for="post in posts" :key="post.id" :title="post.title" :id="post.id" :color="post.color"
+    <blog-post v-for="post in posts.slice(0, 3)" :key="post.id" :title="post.title" :id="post.id" :color="post.color"
       :body="post.body" @changeFavoritesNombre="changeFavorites" />
 
   </div>
