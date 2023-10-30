@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import LoadingSpinner from "./component/LoadingSpinner.vue"
 import BlogPost from "./component/BlogPost.vue";
 import PaginatePost from "./component/PaginatePost.vue";
 
@@ -7,6 +8,7 @@ const posts = ref([]);
 const postsXPage = 10
 const start = ref(0);
 const end = ref(postsXPage);
+const loading = ref(true);
 
 fetch("https://jsonplaceholder.typicode.com/posts")
   .then((res) => res.json())
@@ -30,6 +32,7 @@ const handlePage = (page) => {
 </script>
 
 <template>
+  <loading-spinner />
   <div class="container">
     <h1>APP</h1>
     <h2>Mis Post Favoritos: {{ favorite }}</h2>
