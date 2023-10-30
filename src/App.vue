@@ -20,12 +20,11 @@ const changeFavorites = (post) => favorite.value = post
 
 const handlePage = (page) => {
   if (page) {
-    start.value = start.value + 10;
-    end.value = end.value + 10;
-    console.log(start.value, end.value);
+    start.value = start.value + postsXPage;
+    end.value = end.value + postsXPage;
   } else if (!page) {
-    start.value = start.value - 10;
-    end.value = end.value - 10;
+    start.value = start.value - postsXPage;
+    end.value = end.value - postsXPage;
   }
 }
 </script>
@@ -35,7 +34,7 @@ const handlePage = (page) => {
     <h1>APP</h1>
     <h2>Mis Post Favoritos: {{ favorite }}</h2>
 
-    <paginate-post @handlePageButton="handlePage" />
+    <paginate-post :start="start" @handlePageButton="handlePage" />
 
     <blog-post v-for="post in posts.slice(start, end)" :key="post.id" :title="post.title" :id="post.id"
       :color="post.color" :body="post.body" @changeFavoritesNombre="changeFavorites" />
