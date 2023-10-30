@@ -34,10 +34,10 @@ const handlePage = (page) => {
     <h1>APP</h1>
     <h2>Mis Post Favoritos: {{ favorite }}</h2>
 
-    <paginate-post :start="start" @handlePageButton="handlePage" />
+    <paginate-post :maxLength="posts.length" :end="end" :start="start" @handlePageButton="handlePage" />
 
     <blog-post v-for="post in posts.slice(start, end)" :key="post.id" :title="post.title" :id="post.id"
-      :color="post.color" :body="post.body" @changeFavoritesNombre="changeFavorites" />
+      :color="post.color" :body="post.body" @changeFavoritesName="changeFavorites" />
 
   </div>
 </template>
