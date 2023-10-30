@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import BlogPost from "./component/BlogPost.vue";
+import PaginatePost from "./component/PaginatePost.vue";
 
 const posts = ref([]);
 
@@ -20,7 +21,10 @@ const changeFavorites = (post) => favorite.value = post
     <h1>APP</h1>
     <h2>Mis Post Favoritos: {{ favorite }}</h2>
 
+    <paginate-post />
+
     <blog-post v-for="post in posts" :key="post.id" :title="post.title" :id="post.id" :color="post.color"
       :body="post.body" @changeFavoritesNombre="changeFavorites" />
+
   </div>
 </template>
