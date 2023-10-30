@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import LoadingSpinner from "./component/LoadingSpinner.vue"
 import BlogPost from "./component/BlogPost.vue";
 import PaginatePost from "./component/PaginatePost.vue";
@@ -10,10 +10,21 @@ const start = ref(0);
 const end = ref(postsXPage);
 const loading = ref(true);
 
-fetch("https://jsonplaceholder.typicode.com/posts")
-  .then((res) => res.json())
-  .then((data) => (posts.value = data))
-  .finally(() => setTimeout(() => (loading.value = false), 1500));
+onMounted(async () => {
+  loading.value = true;
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    posts.value = await res.json();
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setTimeout(() => (loading.value = false), 1500);
+  }
+  // fetch("https://jsonplaceholder.typicode.com/posts")
+  //   .then((res) => res.json())
+  //   .then((data) => (posts.value = data));
+  //   .finally(() => setTimeout(() => ((loading.value = false), 1500)))
+});
 
 const favorite = ref('')
 
