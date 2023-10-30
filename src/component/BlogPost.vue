@@ -4,9 +4,9 @@ defineProps({
     title: String,
     id: Number,
     color: String,
-    description: {
+    body: {
         type: String,
-        default: "Don't have description"
+        default: "Don't have body"
     },
 
 })
@@ -19,7 +19,7 @@ const emits = defineEmits(['changeFavorites'])
     <div class="card mt-4">
         <div class="card-body">
             <h5 class="card-tittle" :class="`text-${color}`">{{ id }}.{{ title }}</h5>
-            <p>{{ description }}</p>
+            <p>{{ body }}</p>
             <button class="btn btn-sm btn-outline-primary" @click="emits('changeFavoritesNombre', title)">
                 Mi Favorito
             </button>

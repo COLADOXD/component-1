@@ -1,12 +1,12 @@
-<script setup lang="ts">
+<script setup>
 import { ref } from "vue";
 import BlogPost from "./component/BlogPost.vue";
 
-const posts = [
-  { title: "Post 01", id: 1, description: "Lorem ipsum dolor sit amet consectetur.", color: "primary" },
-  { title: "Post 02", id: 2, description: "Lorem ipsum dolor sit amet consectetur.", color: "secondary" },
-  { title: "Post 03", id: 3, color: "secondary" },
-]
+const posts = ref([]);
+
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then((res) => res.json())
+  .then((data) => (posts.value = data))
 
 const favorite = ref('')
 
@@ -21,6 +21,6 @@ const changeFavorites = (post) => favorite.value = post
     <h2>Mis Post Favoritos: {{ favorite }}</h2>
 
     <blog-post v-for="post in posts" :key="post.id" :title="post.title" :id="post.id" :color="post.color"
-      :description="post.description" @changeFavoritesNombre="changeFavorites" />
+      :body="post.body" @changeFavoritesNombre="changeFavorites" />
   </div>
 </template>
