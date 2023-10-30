@@ -13,6 +13,7 @@ const loading = ref(true);
 fetch("https://jsonplaceholder.typicode.com/posts")
   .then((res) => res.json())
   .then((data) => (posts.value = data))
+  .finally(() => setTimeout(() => (loading.value = false), 1500));
 
 const favorite = ref('')
 
@@ -32,8 +33,8 @@ const handlePage = (page) => {
 </script>
 
 <template>
-  <loading-spinner />
-  <div class="container">
+  <loading-spinner v-if="loading" />
+  <div v-else class="container">
     <h1>APP</h1>
     <h2>Mis Post Favoritos: {{ favorite }}</h2>
 
